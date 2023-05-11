@@ -1,0 +1,314 @@
+/* theme */
+/* On va utiliser quelques variables CSS qui vont définir notre thème. 
+   Les variables CSS sont reconnues par tous les navigateurs et permettent énormément de souplesse.
+   Cela évite de taper plusieurs fois les mêmes codes couleurs donc cela fait gagner beaucoup de temps.
+   Si plus târd, on décide de changer de thème, on aura juste un truc à changer.*/
+/* theme */
+:root {  /* l'élément :root = l'élément html */
+   --font-family: 'Open Sans', sans-serif;                
+   --primary: #e74c3c;                    /* --primary : notre couleur primaire. */
+   --primary-dark:#c0392b;           /* --primary-dark : notre couleur primaire + sombre. */
+   --dark: #2c3e50;                          /* --dark : notre couleur sombre. */
+   --danger : #e74c3c;                     /* --danger : notre couleur erreur. */              
+   --background-light: #ecf0f1;  /* --background-light : couleur de notre grille. */
+   --text-color: #444;                 /* --text-color : couleur du texte. Ici, un gris très fonçé. */
+   --text-color-light: #fff;    /* --text-color-light  : couleur du texte sur la couleur primaire 
+                                                           et sur la couleur sombre. */
+   --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+   --border: 1px solid #eee; /* --border : notre bordure. */
+}
+/* reset */
+/* Quand le navigateur interprète des éléments HTML, il applique à ces éléments HTML, des règles CSS par défaut.
+   Certaines de ces règles CSS par défaut ne sont pas souhaitables. On va donc les retirer. */
+* { /* : le étoile va sélectionner l'intégralité des éléments de notre page HTML. */
+   box-sizing: border-box; /* la hauteur (height) et la largeur (width) vont prendre en compte : 
+                              le padding et les bordures. */
+}
+html, body { /* l'élément :root = l'élément html */
+   margin: 0;         /* On retire le margin. */
+   padding: 0;        /* On retire le padding. */
+   font-size: 10px;   /* font-size : définit la taille de fonte utilisée pour le texte. Ici 10 pixels.
+                         Cela va nous permettre de manipuler des rem dans le reste de notre CSS.
+                         C'est une bonne chose de manipuler des rem lorsque l'on précise des polices.
+                         1 rem = 10 px = taille de la police qui est positionnée ici dans le HTML. */
+   font-family: var(--font-family);
+   /* font-family : permet de définir une liste, ordonnée par priorité, de polices à utiliser 
+                    pour mettre en forme le texte de notre HTML et de notre body. */
+   background-color: var(--background-light); /* var(--background-light) : couleur de notre grille. */
+   /* background-color définit la couleur utilisée pour l'arrière-plan d'un élément. */
+}
+h1, p {   /* pour le <h1></h1> et pour tous les paragraphes */
+  margin:0; /* pas de marge. */        
+}
+h1 {      /* pour le <h1></h1> uniquement : */
+  margin-bottom: 1rem;/* marge en bas : 1rem = 1*10 = 10px */
+}
+ul {
+  padding: 0;           /* pas de padding. */
+  list-style-type: none;/* list-style-type précise le type du marqueur concernant un item/article dans une liste.
+                           none : aucun marqueur d'item/article dans une liste. */
+}
+a {
+   color: inherit; /* propriété color = inherit <=> color prend la même valeur que la propriété équivalente color 
+                                                    de l'élément parent. On n'aura pas la couleur par défaut.*/
+   text-decoration: none; /* le lien ne sera pas souligné. */
+}
+/* container */
+.container { /* la div "container" contient l'intégralité des éléments de notre page HTML. */          
+   font-size: 1.6rem; /* font-size : définit la taille de fonte utilisée pour le texte. 
+                         Ici 1.6 rem = 1.6*10 = 16 px (taille par défaut utilisée dans les navigateurs).*/
+   min-height: 100vh; /* hauteur minimale = 100vh => pour prendre 100% de la hauteur de la page web. */
+   display: flex;     /* pour rendre notre container flexible. */
+   flex-flow: column; /* détermine la direction d'affichage des éléments enfants de la div container 
+                         => les éléments enfants seront affichés en colonne. */
+   color: var(--text-color);/* --text-color : couleur du texte. Ici, un gris très fonçé. */
+}
+.overflow {
+   overflow: hidden;  /* overflow gère la manière dont est rogné le contenu lorsque ce contenu est plus grand 
+                         que la taille spécifiée de notre élément. 
+                         hidden : cache tout ce qui dépasse de l'élément et ne met pas de barre de défilement
+                         (scrollbar). */
+}
+/* text */
+.text-danger {
+  color: var(--danger);/* notre couleur erreur. */
+  font-size : 1.2rem;  /* font-size : définit la taille de fonte utilisée pour le texte.
+                          Ici 1.2 rem = 1.2*10 = 12 px.*/
+  font-weight: bold;   /* font-weight : définit la graisse utilisée pour le texte. 
+                          valeur 700 OU bold => c'est la même chose. */
+}
+ /* button */
+.btn { /* caractéristiques de tous nos boutons */
+  background-color: white;/* couleur d'arrière-plan : blanc. */
+  font-weight : 700;        /* font-weight : définit la graisse utilisée pour le texte. 
+                                             valeur 700 OU bold => c'est la même chose. */
+  color: var(--text-color); /* couleur du texte. */
+  font-size: 1.6rem;        /* définit la taille de fonte utilisée pour le texte.
+                               Ici 1.6rem = 1.6*10 = 16 px */
+  border: 0;                /* pas de bordure. */
+  padding: 10px 15px;       /* 10px en vertical | 15px en horizontal */
+  cursor: pointer;          /* cursor définit la forme du curseur lorsque la souris est au-dessus d'un bouton.
+                               cursor: pointer <=> le curseur se transforme en main avec un doigt déplié
+                                                   lorsque la souris est au-dessus d'un bouton. */
+  border-radius: 3px;       /* border-radius définit des coins arrondis pour la bordure d'un bouton en général. */
+  margin: 0 5px;            /* 0px en vertical | 5px en horizontal */
+  box-shadow: var(--box-shadow);/* box-shadow : pour ajouter une ombre. */
+}
+.btn-primary {
+  background-color: var(--primary); /* --primary : notre couleur primaire. */
+  color: var(--text-color-light);   /* --text-color-light  : couleur du texte sur la couleur primaire 
+                                                             et sur la couleur sombre. */
+}
+.btn-danger {
+  background-color: var(--danger);  /* --danger : notre couleur erreur. */ 
+  color:var(--text-color-light);    /* --text-color-light  : couleur du texte sur la couleur primaire 
+                                         et sur la couleur sombre. */
+}
+.btn-small {
+  padding: 5px 10px; /* padding vertical : 5px | padding horizontal : 10px */
+  font-size: 1.4rem; /* font-size : définit la taille de fonte utilisée pour le texte.
+                        Ici 1.4rem = 1.4*10 = 14 px. */
+}
+.low-opacity {
+  opacity: 0.5;    /* opacity définit la transparence d'un élément. */
+}
+.small {
+   font-size: 1.2rem; /* définit la taille de fonte utilisée pour le texte. Ici : 1.2rem = 12 px. */
+   margin: 0 0.5rem;  /* pas de margin en vertical | 0.5rem = 5 px en horizontal. */
+}
+ /* header */
+header {
+   background-color: var(--primary); /* couleur d'arrière-plan du header : notre couleur primaire. */
+   padding: 1.5rem;                  /* On met un peu de padding : 1.5 rem = 1.5*10 = 15 px. */
+   box-shadow: var(--box-shadow);    /* box-shadow : pour ajouter une ombre. */
+   color: var(--text-color-light);   /* --text-color-light : couleur du texte qui sera sur la couleur primaire 
+                                        et sur la couleur sombre. */
+   display: flex;                    /* pour rendre notre content flexible. */
+   flex-flow: row nowrap;            /* axe principal : row = axe horizontal.
+                                        + nowrap : notre flex va rester toujours sur une seule ligne. */
+   justify-content: space-between;   /* pour ne pas avoir d'espace entre 1 élément et une bordure,
+                                        que la bordure soit tout à gauche ou tout à droite. */
+   align-items: center; /* les éléments sont alignés au milieu par rapport à l'axe secondaire (axe vertical). */
+   position : relative; /* propriété position : définit la façon dont ici l'élément header est positionné. 
+      valeur relative : ici l'élément header est positionné dans le flux normal du document puis décalé,
+                        par rapport à lui-même, selon les valeurs fournies par top, right, bottom et left. */
+}
+.header-menu {    /* « MENU CLASSIQUE  » */
+   margin:0;                         /* pas de marge. */
+   display: flex;                    /* pour rendre notre header-menu flexible. */
+   flex-flow: row;                   /* axe principal : row = axe horizontal. */
+   align-items: center;              /* alignement au centre par rapport à l'axe secondaire vertical. */
+}
+.header-menu li { /* un élément dans le « MENU CLASSIQUE  » */
+   margin-left: 1rem;   /* marge à gauche : 1rem = 10px. */
+   border-radius: 3px;  /* border-radius définit des coins arrondis pour la bordure d'un élément de notre header.*/
+   padding: 5px 15px;   /* 5px en vertical | 15px en horizontal */
+   transition: background-color 0.2s; /* transition sur : propriété background-color en 0.2 secondes. */
+}
+.header-menu li:hover { /* :hover => précise l'apparence d'un élément au moment où l'utilisateur le survole
+   avec le pointeur de la souris, sans nécessairement l'activer. */
+background-color: var(--primary-dark);/* notre couleur primaire + sombre. */
+}
+.active {
+   background-color: var(--primary-dark);/*  <li class="active"> : on maintien la couleur primaire + sombre. */
+}
+.logo {
+   font-weight: 700;              /* font-weight : définit la graisse utilisée pour le texte. 
+                                                   valeur 700 OU bold => c'est la même chose. */
+   font-size: 2rem;               /* font-size : définit la taille de fonte utilisée pour le texte.
+                                     Ici 2 rem = 2*10 = 20 px. */
+   color: var(--text-color-light);/* --text-color-light : couleur du texte qui sera sur la couleur primaire 
+                                                          et sur la couleur sombre. */
+}
+li.header-profile {
+   font-weight: 700;              /* font-weight : définit la graisse utilisée pour le texte. 
+                                                   valeur 700 OU bold => c'est la même chose. */
+   background-color: var(--dark); /* notre couleur sombre. */
+   border-radius: 50%;            /* border-radius définit des coins arrondis pour la bordure. */     
+   height: 40px;                  /* hauteur : 40 pixels. */
+   width: 40px;                   /* largeur : 40 pixels. */
+   display: flex;                 /* pour rendre le bouton "page de profil de l'utilisateur" (avec ces initiales
+                                     1ière lettre du Prénom et 1ière lettre du Nom) flexible. */
+   flex-flow: row;                /* axe principal : row = axe horizontal. */  
+   align-items: center;           /* alignement au centre par rapport à l'axe secondaire vertical. */
+   justify-content: center;       /* alignement au centre par rapport à l'axe principal horizontal. */
+}
+li.header-profile:hover {         /* :hover => précise l'apparence d'un élément au moment où l'utilisateur le survole
+                                     avec le pointeur de la souris, sans nécessairement l'activer. */
+   background-color: var(--dark); /* notre couleur sombre. */
+}
+ /* content */
+.content {
+   max-width: 100rem;             /* largeur maximale : 100rem = 100*10= 1000 px. */
+   width: 100%;                   /* => pour prendre 100% de la largeur de la page web. */  
+   flex: 1;                       /* Le content va prendre tout l'espace disponible dans le flex. */
+   display: flex;                 /* pour rendre notre content flexible. */
+   flex-flow: column;             /* flex-flow = propriété raccourcie pour flex-direction et flex-wrap.*/
+                                  /* -> flex-direction : column =  axe principal vertical. */
+   align-self: center;            /* alignement au centre par rapport à l'axe principal vertical. */
+   align-items: center;           /* alignement au centre par rapport à l'axe secondaire horizontal. */
+   padding: 2rem 0;               /* 2rem en vertical | 0 en horizontal. */
+}
+ /* footer */
+footer {
+   display: flex;                 /* pour rendre notre container flexible. */
+   background: var(--dark);       /* --dark : notre couleur sombre. */
+   flex-flow: row-reverse;        /* détermine la direction d'affichage des éléments enfants de la div footer 
+                                   => les éléments enfants seront affichés en ligne et apparaîtront à droite.*/
+   color: var(--text-color-light);/* --text-color-light : couleur du texte qui sera 
+                                                        sur la couleur primaire et sur la couleur sombre. */
+   padding: 1.5rem;               /* On ajoute un peu de padding : 1.5 rem = 1.5*10 = 15 px. */
+}
+/* block */
+.block {
+   border-radius: 3px;            /* border-radius définit des coins arrondis pour la bordure. */
+   border: var(--border);         /* bordure. */
+   background-color: white;     /* couleur d'arrière-plan : blanc. */
+   box-shadow: var(--box-shadow); /* box-shadow : pour ajouter une ombre. */
+}
+/* utils */
+.p-20 { /* une classe p-20 : classe qui va permettre de mettre 20 px de padding. */
+   padding: 20px;                 /* padding : 20 px. */
+}
+.p-10 { /* une classe p-10 : classe qui va permettre de mettre 10 px de padding. */
+   padding: 10px;                 /* padding : 10 px. */
+}
+/* form : on ajoute dans style.css toutes les classes de formulaire. */
+.form-container {
+   display: flex;                 /* pour rendre notre content flexible. */
+   flex-flow: column;             /* flex-flow = propriété raccourcie pour flex-direction et flex-wrap.*/
+                                  /* -> flex-direction : column =  axe principal vertical. */
+   width: 60rem;                  /* largeur de 60 rem = 60px. */
+ }
+ .form-container h1 {
+   margin-bottom: 2rem;           /* marge en bas : 2 rem = 2*10 = 20 px. */
+ }
+ .form-control {
+   display: flex;                 /* pour rendre notre élément flexible. */
+   flex-flow: column;             /* flex-flow = propriété raccourcie pour flex-direction et flex-wrap.*/
+                                  /* -> flex-direction : column =  axe principal vertical. */
+   margin: 1rem 0;                /* marge de 1rem = 10 px en vertical | pas de marge en horizontal. */
+ }
+ .form-control label {
+   margin-bottom: 1rem;           /* marge en bas : 1rem = 10 px. */
+ }
+ .form-control input {
+   border: var(--border);        /* --border : notre bordure. */
+   border-radius: 3px;           /* border-radius définit des coins arrondis pour la bordure. */
+   padding: 1rem 1.5rem;         /* 1rem = 10px en vertical | 1.5rem = 15px en horizontal. */
+ }
+ .form-control select {
+   border: var(--border);        /* --border : notre bordure. */
+   padding: 1rem 1.5rem;         /* 1rem = 10px en vertical | 1.5rem = 15px en horizontal. */
+ }
+ .form-control textarea {
+   border: var(--border);        /* --border : notre bordure. */
+   padding: 1rem 1.5rem;         /* 1rem = 10px en vertical | 1.5rem = 15px en horizontal. */
+   min-height: 20rem;            /* hauteur minimale = 20rem = 200 px. */
+ }
+ .form-actions {
+   display: flex;                 /* pour rendre notre content flexible. */
+   flex-flow: row nowrap;         /* axe principal : row = axe horizontal.
+                                     + nowrap : notre flex va rester toujours sur une seule ligne. */
+   justify-content: flex-end;     /* les éléments sont positionnés à la fin/à droite sur l'axe principal horizontal. */
+ }
+/* AFFICHAGE sur mobile/téléphone */
+.header-mobile { /* « MENU MOBILE  » */
+   display: none;  /* propriété display : définit le type d'affichage utilisée ici pour le rendu ici de l'élément
+                      header-mobile « menu mobile ».
+                      valeur none       : notre élément header-mobile « menu mobile » ne sera pas affiché.*/
+}
+.header-mobile-list { /* LISTE DU « MENU MOBILE  » */
+   display : none;    /* par défaut, la liste du menu « menu mobile » (élément header-mobile) ne sera pas affichée. */
+   position:absolute; /*propriété position : définit la façon dont header-mobile-list est positionné. 
+                        valuer : absolute => L'élément header-mobile-list est retiré du flux normal.
+                                             Il est ensuite positionné par rapport à header (ancêtre le + proche). 
+                                             La position de header-mobile-list est déterminée 
+                                             par les valeurs de top, right, bottom et left.*/
+   left: 0;     /* le header-mobile-list sera positionné à gauche. */ 
+   width: 100%;/*  en largeur, la liste du « menu mobile » (élément header-mobile) prendra 100% de l'espace disponible.*/
+   color: var(--text-color);
+   background: var(--background-light);
+}
+.show { /* la classe 'show' dans l'élément HTML <ul class="header-mobile-list show"> : */
+   display: block; /*  Les éléments "Écrire un article", "Déconnexion", "Mon espace" (si l'utilisateur est connecté)
+                       ainsi que les éléments "Inscription" et "Connexion" (si l'utilisateur n'est pas connecté)
+                       sont interprétés comme un bloc. */
+}
+.header-mobile-list li { /* UN ÉLÉMENT DANS LA LISTE DU « MENU MOBILE  » */
+   padding: 1rem;   /* padding sur les 4 côtés d'un élément : 1 rem = 10 pixels. */
+}
+.header-mobile-list li.active { /* SI la classe est 'active' DANS UN ÉLÉMENT DANS LA LISTE DU « MENU MOBILE  » : . */
+   color: white;
+   font-weight: 700;            /* font-weight : définit la graisse utilisée pour le texte. 
+                                   valeur 700 OU bold => c'est la même chose. */
+}
+@media only screen and (max-width: 800px) { /* @media : on va écrire une Media querie. */
+/* Si on a une taille d'écran en largeur < à 800 pixels, alors on exécute le code à l'intérieur des accolades.
+   Sur les vieux Navigateurs, la règle CSS avec la Media querie ne sera pas appliquée.
+   Le « only screen and » permettra de se protéger des vieux navigateurs. */
+   .header-menu { /* « MENU CLASSIQUE » */
+      display: none; /* propriété display : définit le type d'affichage utilisée pour le rendu
+                                            ici de notre élément « MENU CLASSIQUE ».
+                        valeur none       : notre élément « MENU CLASSIQUE » header-menu, ne sera pas affiché
+                                            si la taille d'écran en largeur < à 800 pixels.*/
+   }
+   .header-mobile {   /* « MENU MOBILE » */
+      display: block; /*  Les éléments "Écrire un article", "Déconnexion", "Mon espace" (si l'utilisateur est connecté)
+                          ainsi que les éléments "Inscription" et "Connexion" (si l'utilisateur n'est pas connecté)
+                          sont interprétés comme un bloc. */
+   }
+    /* Ici, si on a une taille d'écran en largeur < à 800 pixels : 
+        - on n'affichera pas le « MENU CLASSIQUE ».
+        - on va affichera le « MENU MOBILE ».  */
+   .form-container { /* Contenu de notre formulaire sur mobile/téléphone : */
+      width: 100%;   /* largeur du contenu de notre formulaire = 100 % de l'espace disponible en largeur. */
+   }
+   .content {        /* Contenu de chaque page PHP de notre application de BLOG sur mobile/téléphone : */
+      padding: 1rem; /* padding sur les 4 côtés : 1 rem = 10 pixels. */
+   }
+   .form-container { /* Contenu de notre formulaire : */
+      width: 100%;   /* le contenu de notre formulaire va prendre, en largeur, 100 % de l'espace disponible 
+                        sur 1 ligne. */
+   }
+}

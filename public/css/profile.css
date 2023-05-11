@@ -1,0 +1,40 @@
+.content {
+  align-items: flex-start;    /* les éléments sont alignés au début/en haut sur l'axe secondaire vertical. */
+  justify-content: flex-start;/* les éléments sont alignés au début/à gauche sur l'axe principal horizontal. */
+}
+.info-container ul li {    
+  display: flex;             /* pour rendre un élément flexible dans la liste Mes informations sur la page de profil. 
+                                Chaque élément li sera sur la même ligne. */
+}
+.info-container ul li strong {
+  margin-right: 5px;          /* marge à droite : 5 pixels. */
+}
+.articles-list {
+  width: 100%;               /* => pour prendre 100% de la largeur de la page web. */
+}
+.articles-list ul li {
+  display: flex;                    /* pour rendre l'article flexible de l'utilisateur-auteur qui est connecté sur
+                                       sa page de profil. */
+  flex-flow: row;                   /* axe principal : row = axe horizontal. */
+  justify-content: space-between;   /* pour ne pas avoir d'espace entre 1 élément et une bordure,
+                                       que la bordure soit tout à gauche ou tout à droite. */
+  padding: 15px;                    /* padding de 15px sur les 4 côtés d'un élément. */
+  border-radius: 3px;               /* border-radius définit des coins arrondis pour la bordure d'un bouton en général. */
+  background-color: white;        /* couleur de l'arrière-plan : blanc. */
+  border:var(--border);             /* --border : notre bordure. */
+  margin-bottom: 5px;               /* marge en bas de 5 pixels. */
+}
+/* AFFICHAGE sur mobile/téléphone : */
+@media only screen and (max-width: 800px) { /* @media : on va écrire une Media querie. */
+  /* Si on a une taille d'écran en largeur < à 800 pixels, alors on exécute le code à l'intérieur des accolades.
+     Sur les vieux Navigateurs, la règle CSS avec la Media querie ne sera pas appliquée.
+     Le « only screen and » permettra de se protéger des vieux navigateurs. */
+     .articles-list ul li { /* UN ÉLÉMENT-ARTICLE dans la LISTE D'ARTICLES 
+                               appartenant à un UTILISATEUR-AUTEUR-PROPRIÉTAIRE EN PARTICULIER :*/
+       flex-flow: column; /* axe principal : column = axe vertical (une colonne)
+                             pour avoir un élément-article par ligne.*/
+    }
+    .article-actions {
+      margin-top: 1rem;   /* marge en haut de 1 rem = 10 pixels */
+    }
+  }

@@ -1,0 +1,49 @@
+.article-cover-img {
+  height: 50rem;          /* hauteur = 50rem = 500 px. */
+  width: 100%;            /* largeur doit prendre 100% de l'espace disponible. */
+  background-size: cover; /* cover va faire correspondre exactement la taille de l'image avec la taille de la div.
+                             L'image sera affichée complètement et prendra tout l'espace disponible dans la div.
+                             L'image sera bien adaptée, quelque soit son format de base. */
+  border-radius: 3px;     /* border-radius définit des coins arrondis pour la bordure. Rayon de courbure = 3 px. */
+}
+.article-title {
+  margin: 3rem 0;         /* marge de 3rem = 30 px en vertical | pas de marge en horizontal. */
+  text-align: left;       /* alignement horizontal et à gauche du texte. */
+  font-size: 5rem;        /* font-size : définit la taille de fonte utilisée pour le texte. Ici 50 pixels. */
+  font-weight: 400;       /* font-weight : définit la graisse utilisée pour le texte. */
+}
+.article-author {
+  text-align: right;          /* alignement du texte à droite selon l'axe horizontal. */
+  font-size: 1rem;            /* font-size : définit la taille de fonte utilisée pour le texte. Ici 1rem = 10 pixels. */
+  font-weight: 700;           /* font-weight : définit la graisse utilisée pour le texte. 
+                                 valeur 700 OU bold => c'est la même chose. */
+  font-style: italic;         /* font-style : définit un style de fonte qui sera utilisé pour le texte.
+                                 Ici : style italique. */
+}
+.article-content {
+  white-space: pre-wrap;  /* white-space : pour décrire la façon dont les blancs sont gérés au sein de l'élément.
+                             pre-wrap    : pour garder les sauts de ligne. */
+}
+.article-container {
+  width: 100%;             /* largeur doit prendre 100% de l'espace disponible. */
+  padding-bottom: 10rem;   /* padding en bas : 10rem = 100 px. */
+}
+.article-back {
+  font-weight: 700;           /* font-weight : définit la graisse utilisée pour le texte. 
+                                               valeur 700 OU bold => c'est la même chose. */
+  font-size: 1.2rem;          /* font-size   : définit la taille de fonte utilisée pour le texte. Ici 12 pixels. */
+  text-decoration: underline; /* text-decoration     : pour préciser les décorations linéaires d'un mot. 
+                                 propriété underline : le texte est souligné.*/
+  cursor: pointer;            /* cursor définit la forme du curseur lorsque la souris est au-dessus d'un bouton.
+                                 cursor: pointer <=> le curseur se transforme en main avec un doigt déplié
+                                                     lorsque la souris est au-dessus d'un bouton. */
+  margin-bottom: 1rem;        /* marge en bas de 1rem = 10 px. */
+  display: block;             /* display permet de modifier le type de rendu d'un élément.
+                                 propriété block : l'élément est interprété comme un bloc. */
+}
+.action {
+  margin-top: 2rem;           /* margin en haut : 2rem = 20 px. */
+  display: flex;              /* pour rendre notre content flexible. */
+  align-items: flex-end;      /* alignement vers la fin du conteneur selon l'axe secondaire. */
+  justify-content: flex-end;  /* alignement vers la fin du conteneur selon l'axe principal.  */
+}

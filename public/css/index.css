@@ -1,0 +1,102 @@
+.articles-container {
+  display: flex;          /* pour rendre notre élément flexible. */
+  flex-flow: row wrap;    /* axe principal : row = axe horizontal.
+                             + wrap : lorsqu'on n'a plus de place, on va la ligne. */
+  justify-content: center;/* les éléments sont alignés au centre sur l'axe principal horizontal. */
+  align-items: flex-start;/* les éléments sont alignés en haut sur l'axe secondaire vertical. 
+                             => chaque élément-article ne prend pas par défaut toute la largueur la largeur disponible
+                                sur une ligne.*/
+}
+.article {
+  flex: 30%;
+  margin: 1rem;           /* 1rem = 10px en vertical | 1rem = 10px en horizontal. */
+  min-height: 41rem;      /* hauteur minimale = 41 rem = 410 px. */
+  cursor: pointer;        /* cursor définit la forme du curseur lorsque la souris est au-dessus d'un bouton.
+                             cursor: pointer <=> le curseur se transforme en main avec un doigt déplié
+                                                 lorsque la souris est au-dessus d'un bouton. */
+}
+.article:hover .img-container { /* Sur .article:hover, on va allez chercher .img-container */
+  /* :hover => précise l'apparence d'un élément au moment où l'utilisateur le survole
+               avec le pointeur de la souris, sans nécessairement l'activer. */
+  transform: scale(1.1);  /* Ici, on va zoomer de 1.1. Rappel : scale(1) => c'est la taille originale.
+                             Quand on va passer la souris sur un article, l'image de cet article va être zoomée
+                             de 1.1. */
+}
+.newsfeed-content h2 {
+  font-size: 1.9rem;      /* font-size : définit la taille de fonte utilisée pour le texte. Ici 1.9 rem = 19 pixels. */
+  padding: 0 1rem;        /* padding 0px en vertical | padding 1rem = 10px en horizontal. */
+
+}
+.article h3 {
+  font-size: 1.7rem;      /* font-size : définit la taille de fonte utilisée pour le texte. Ici 1.7 rem = 17 pixels. */
+  padding: 1rem 1.5rem;   /* padding 1rem = 10px en vertical | padding 1.5rem = 15px en horizontal. */
+}
+.img-container {
+  height: 30rem;              /* hauteur de 30rem = 300 px. */
+  background-size: cover;     /* cover va faire correspondre exactement la taille de l'image avec la taille de la div.
+                                 L'image sera affichée complètement et prendra tout l'espace disponible dans la div.
+                                 L'image sera bien adaptée, quelque soit son format de base. */
+  transition: transform 1s;   /* transition : sur la propriété transform, durée de 1 seconde. */
+}
+.article-author {
+  display: flex;              /* pour rendre l'affichage de notre auteur (prénom - nom) flexible. */
+  flex-flow: row;             /* axe principal : row = axe horizontal. */
+  justify-content: flex-end;  /* les éléments sont alignés tout à droite ou à la fin du flex 
+                                 sur l'axe principal horizontal. */
+  padding-right: 20px;        /* padding à droite : 20 pixels. */
+}
+.article-author p {
+  font-size: 1rem;            /* font-size : définit la taille de fonte utilisée pour le texte. Ici 1rem = 10 pixels. */
+  font-weight: 700;           /* font-weight : définit la graisse utilisée pour le texte. 
+                                 valeur 700 OU bold => c'est la même chose. */
+  font-style: italic;         /* font-style : définit un style de fonte qui sera utilisé pour le texte.
+                                 Ici : style italique. */
+} 
+.newsfeed-container {
+  display: flex;             /* pour rendre notre élément flexible. */
+  flex-flow: row nowrap;     /* axe principal : row = axe horizontal.
+                              + nowrap : notre flex va rester toujours sur une seule ligne. */
+}
+@media only screen and (max-width: 800px) { /* @media : on va écrire une Media querie. */
+  /* Si on a une taille d'écran en largeur < à 800 pixels, alors on exécute le code à l'intérieur des accolades.
+     Sur les vieux Navigateurs, la règle CSS avec la Media querie ne sera pas appliquée.
+     Le « only screen and » permettra de se protéger des vieux navigateurs. */
+     .category-container { /* « MENU Catégorie » */
+        display: none; /* propriété display : définit le type d'affichage utilisée pour le rendu
+                                              ici de notre élément « MENU Catégorie ».
+                          valeur none       : notre élément « MENU Catégorie » category-container, 
+                                              ne sera pas affiché si la taille d'écran en largeur 
+                                              est < à 800 pixels.*/
+     }
+     .articles-container { /* Contenu d'un article précis-en particulier : */
+        flex-flow: column; /* axe principal : column = axe vertical (une colonne)
+                              pour avoir un élément-article par ligne/sur une ligne.*/
+        align-items: unset;/* annule la valeur de la propriété align-items qui avait été pré-définie
+                              pour articles-container dans le « MENU CLASSIQUE ».
+                              En effet, avant, pour.articles-container dans le « MENU CLASSIQUE », on avait :
+                              align-items: flex-start; 
+                              => chaque élément-article ne prennait pas par défaut toute la largueur d'une ligne.
+                              Maintenant, comme on annule, chaque élément-article prend toute la largeur 
+                              disponible sur une ligne. */
+     }
+  }
+.category-container {
+  flex: 200px;               /* taille du flex : 200 px. */
+}
+.category-container li {
+  margin: 1rem 0;           /* margin 1rem = 10px en vertical | pas de margin en horizontal. */
+  transition: color 0.2s;   /* transition : sur la propriété color, durée de 0.2 secondes. */
+}
+.category-container li:hover {
+  /* :hover => précise l'apparence d'un élément au moment où l'utilisateur le survole
+               avec le pointeur de la souris, sans nécessairement l'activer. */
+  color: var(--primary);    /* notre couleur primaire. */
+  cursor: pointer;          /* cursor définit la forme du curseur lorsque la souris est au-dessus d'un bouton.
+  cursor: pointer <=> le curseur se transforme en main avec un doigt déplié
+                      lorsque la souris est au-dessus d'un bouton. */
+}
+.cat-active {
+  color: var(--primary);   /* notre couleur primaire. */
+  font-weight: 700;        /* font-weight : définit la graisse utilisée pour le texte. 
+                              valeur 700 OU bold => c'est la même chose. */
+}
